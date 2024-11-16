@@ -1,0 +1,27 @@
+{
+	"private": true,
+	"scripts": {
+		"build": "turbo run build",
+		"clean": "turbo run clean",
+		"dev": "turbo run dev",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"lint": "turbo run lint",
+		"test": "turbo run test",
+		"typecheck": "turbo run typecheck",
+		"db:push": "turbo run db:push",
+		"db:generate": "turbo run db:generate"
+	},
+	"devDependencies": {
+		"prettier": "^3.2.5",
+		"turbo": "^2.3.0"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"name": "contactify-mono-repo",
+	"packageManager": "npm@10.8.3",
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	]
+}

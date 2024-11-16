@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  userId   String    @id @default(cuid())
+  contacts Contact[]
+}
+
+model Contact {
+  id           String        @id @default(cuid())
+  name         String
+  avatar       String
+  jobTitle     String
+  company      String
+  userId       String
+  user         User          @relation(fields: [userId], references: [userId])
+  phoneNumbers PhoneNumber[] @relation("ContactToPhoneNumber")
+  emails       Email[]       @relation("ContactToEmail")
+}
+
+model PhoneNumber {
+  id        String  @id @default(cuid())
+  number    String
+  type      String
+  isPrimary Boolean
+  contactId String
+  contact   Contact @relation("ContactToPhoneNumber", fields: [contactId], references: [id], onDelete: Cascade)
+}
+
+model Email {
+  id        String  @id @default(cuid())
+  address   String
+  type      String
+  isPrimary Boolean
+  contactId String
+  contact   Contact @relation("ContactToEmail", fields: [contactId], references: [id], onDelete: Cascade)
+}
