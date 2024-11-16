@@ -3,7 +3,7 @@ import './globals.css';
 import AppProvider from '@/components/AppProvider';
 
 export const metadata: Metadata = {
-	title: 'Contact-Management',
+	title: 'Contactify',
 	description: 'A Simple Contact Management SAAS Application',
 };
 

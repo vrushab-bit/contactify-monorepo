@@ -1,5 +1,7 @@
 # README for Contactify
 
+[![Stack](https://skillicons.dev/icons?i=nextjs,ts,express,postgres)](https://skillicons.dev)
+
 ## Overview
 
 **Contactify** is a contact management starter project designed to streamline the organization and sharing of contact information. This project utilizes a monorepo structure managed by Turborepo, which contains two applications: **API** and **Frontend**, along with a shared package for database management called **prisma-db**.

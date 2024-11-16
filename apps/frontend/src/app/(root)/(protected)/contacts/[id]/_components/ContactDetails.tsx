@@ -25,6 +25,7 @@ import ContactCard from './ContactCard';
 import EmailCard from './EmailCard';
 import InformationCard from './InformationCard';
 import { useAuth } from '@clerk/clerk-react';
+import { revalidateEndpoint } from '@/actions/revalidate';
 
 interface Contact {
 	id: string;
@@ -92,6 +93,7 @@ function ContactDetailsClient({ contact }: ContactDetailsClientProps) {
 				severity: 'success',
 			});
 			setOpenDialog(false);
+			await revalidateEndpoint('/contacts');
 			router.push('/contacts');
 		} catch (error) {
 			console.error('Error deleting contact:', error);
